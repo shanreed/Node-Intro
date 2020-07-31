@@ -49,6 +49,7 @@ function processFile(filepath) {
             // err will be an object so calling toString will 
             //print something useful
         } else {
+            contents = contents.toString().toUpperCase()//transform the text to uppercase
             process.stdout.write(contents)
 
         }
