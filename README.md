@@ -80,5 +80,27 @@ ___
 So `path.resolve()` defaults to saying if you do not give me a absolute path, then I will make it relative to current __dirname
 
 
-# Access File and pring Contents
-### fs
+# Access File and printing Content (fs)
+
+        function processFile(filepath) {
+            var contents = fs.readFileSync(filepath);
+            console.log(contents)
+        }
+### run in terminal `./readfile.js --file=../files/hello.txt`
+* by the time the function made it to the shell `console.log(contents)` had already stringfied it into the Binary Buffer
+* by default the file system command are not assuming you want to represent things as stings, but binary buffers instead
+* using `process.stdout.write(contents)` will allow you to pass the binary buffer to the shell and the shell knows what to do with the bytes
+
+        function processFile(filepath) {
+            var contents = fs.readFileSync(filepath);
+            process.stdout.write(contents)
+        }
+
+
+* The following will do the same as the above code, `utf8`: encoding
+* slightly less sufficent by microseconds because we have given to the shell preprocessed string, rather than binary data
+
+        function processFile(filepath) {
+                    var contents = fs.readFileSync(filepath, "utf8");
+                    console.log(contents)
+                }
