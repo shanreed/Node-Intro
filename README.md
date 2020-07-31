@@ -104,3 +104,24 @@ So `path.resolve()` defaults to saying if you do not give me a absolute path, th
                     var contents = fs.readFileSync(filepath, "utf8");
                     console.log(contents)
                 }
+
+
+
+
+### readFile Async
+* expects a callback 
+* node uses a standard for the callback's first parameter must be error
+
+            function processFile(filepath) {
+            fs.readFile(filepath, function onContents(err, contents) {
+                if (err) {
+                    error(err.toString())
+                    // err will be an object so calling toString will 
+                    //print something useful
+                } else {
+                    process.stdout.write(contents)
+
+                }
+            });
+        
+        }
