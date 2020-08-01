@@ -125,3 +125,23 @@ So `path.resolve()` defaults to saying if you do not give me a absolute path, th
             });
         
         }
+
+
+
+**Receive the file input on the stdin stream instead of trying to get it from the file**
+
+#### [get-stdin](https://www.npmjs.com/package/get-stdin)(user supplied)
+    * receive the file input on the stdin stream instead of trying to get it from the file
+    * a single hypen at the end means stdin will provide all the inputs
+    * `cat ../files/hello.txt | ./ex1.js --in` will process the file through stdin
+        * pipe the infomation in files/hello.txt, into ./ex1.js --in
+        * turn the output stream and turn into a intput stream and pipe it directly into ex1.js
+    * `cat ../files/hello.txt | ./ex1.js -` will also process the file through stdin
+
+#### [ utils ]((https://nodejs.org/api/util.html)) (built into node)
+
+
+Input using environment variables
+
+
+
